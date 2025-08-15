@@ -67,8 +67,7 @@ O desempenho será analisado pela média simples de duas avaliações (AT1 e AT2
 
 ## Estrutura do Repositório
 
-- **/Aulas:** Contém os slides e materiais de referência fornecidos pelo professor.
-- **/Codigos:** Contém os códigos-fonte desenvolvidos durante as aulas e como exercícios.
+- **/Pratica:** Contém os códigos-fonte e materiais práticos.
 - **/Trabalhos:** Contém os projetos e trabalhos práticos da disciplina.
 - `README.md`: Este arquivo, com a descrição geral do repositório.
 
