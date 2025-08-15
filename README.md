@@ -68,15 +68,28 @@ O desempenho será analisado pela média simples de duas avaliações (AT1 e AT2
 ## Estrutura do Repositório
 
 - **/Pratica:** Contém os códigos-fonte e materiais práticos.
+- **/Referencias:** Contém guias, cheat sheets e outros materiais de referência.
 - **/Trabalhos:** Contém os projetos e trabalhos práticos da disciplina.
 - `README.md`: Este arquivo, com a descrição geral do repositório.
 
 ## Links e Recursos Úteis
 
+#### Git e Versionamento
+
+- **[Livro Pro Git][pro-git-book]**: A documentação mais completa sobre Git (Leitura Essencial).
+- **[Git Guide (Simples)][git-guide]**: Um guia simples e direto para aprender Git.
+- **[Noções Básicas de Git][git-scm-basics]**: Primeiros passos, do livro oficial do Git.
+- **[Try Git][try-github]**: Um tutorial interativo para praticar comandos.
+- **[Git Handbook][github-handbook]**: Guia de introdução ao Git mantido pelo GitHub.
 - **[Conventional Commits][conventional-commits]**: A especificação que define o padrão de commits que estamos utilizando.
+
+#### Estrutura de Dados e Ferramentas
+
+- **[Structs em C (CADILAG)][structs-guide]**: Material interativo sobre Structs.
+- **[Visualizador de Algoritmo de Dijkstra][dijkstra-visualizer]**: Ferramenta para visualizar a execução do algoritmo de Dijkstra.
+- **[CodeShare][codeshare-io]**: Editor de código colaborativo em tempo real.
+- **[Editor Markdown (Dillinger)][dillinger-editor]**: Ferramenta que usamos como inspiração para a formatação deste README.
 - **[Sintaxe Markdown do GitHub][github-markdown]**: Guia oficial do GitHub para formatação de texto.
-- **[Livro Pro Git][pro-git-book]**: A documentação mais completa sobre Git.
-- **[Editor Markdown Online (Dillinger)][dillinger-editor]**: Ferramenta online que usamos como inspiração para a formatação deste README.
 
 ## Glossário de Commits
 
@@ -99,3 +112,10 @@ Para manter o histórico do projeto organizado, este rpositório seguirá o padr
 [github-markdown]: https://docs.github.com/pt/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
 [pro-git-book]: https://git-scm.com/book/pt-br/v2
 [dillinger-editor]: https://dillinger.io/
+[git-guide]: https://rogerdudler.github.io/git-guide/index.pt_BR.html
+[git-scm-basics]: https://git-scm.com/book/pt-br/v1/Primeiros-passos-No%C3%A7%C3%B5es-B%C3%A1sicas-de-Git
+[try-github]: https://try.github.io
+[github-handbook]: https://guides.github.com/introduction/git-handbook/
+[structs-guide]: https://portaldoprofessor.fct.unesp.br/projetos/cadilag/apps/structs/?list=card
+[dijkstra-visualizer]: https://www.cs.usfca.edu/~galles/visualization/Dijkstra.html
+[codeshare-io]: https://codeshare.io
