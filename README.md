@@ -74,10 +74,10 @@ O desempenho será analisado pela média simples de duas avaliações (AT1 e AT2
 
 ## Links e Recursos Úteis
 
-- **[Conventional Commits][conventional-commits]**: A especificação que define o padrão de commits utilizado.
+- **[Conventional Commits][conventional-commits]**: A especificação que define o padrão de commits que estamos utilizando.
 - **[Sintaxe Markdown do GitHub][github-markdown]**: Guia oficial do GitHub para formatação de texto.
 - **[Livro Pro Git][pro-git-book]**: A documentação mais completa sobre Git.
-- **[Editor Markdown Online (Dillinger)][dillinger-editor]**: Ferramenta online usada como inspiração para a formatação deste README.
+- **[Editor Markdown Online (Dillinger)][dillinger-editor]**: Ferramenta online que usamos como inspiração para a formatação deste README.
 
 ---
 
@@ -85,3 +85,4 @@ O desempenho será analisado pela média simples de duas avaliações (AT1 e AT2
 [conventional-commits]: https://www.conventionalcommits.org/pt-br/v1.0.0/
 [github-markdown]: https://docs.github.com/pt/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
 [pro-git-book]: https://git-scm.com/book/pt-br/v2
+[dillinger-editor]: https://dillinger.io/
