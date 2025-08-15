@@ -79,6 +79,20 @@ O desempenho será analisado pela média simples de duas avaliações (AT1 e AT2
 - **[Livro Pro Git][pro-git-book]**: A documentação mais completa sobre Git.
 - **[Editor Markdown Online (Dillinger)][dillinger-editor]**: Ferramenta online que usamos como inspiração para a formatação deste README.
 
+## Glossário de Commits
+
+Para manter o histórico do projeto organizado, este rpositório seguirá o padrão [Conventional Commits][conventional-commits]. Abaixo estão indicados os tipos mais comuns:
+
+| Tipo         | Descrição                                                                                                      |
+| :----------- | :------------------------------------------------------------------------------------------------------------- |
+| **feat**     | Adiciona uma nova funcionalidade ou um novo recurso ao projeto.                                                |
+| **fix**      | Corrige um bug ou um erro no código.                                                                           |
+| **docs**     | Altera apenas a documentação (como o `README.md`, comentários no código).                                      |
+| **style**    | Altera apenas a formatação do código (espaços, ponto e vírgula, etc.), sem mudar a lógica.                     |
+| **refactor** | Altera o código, mas sem corrigir bugs ou adicionar funcionalidades (melhora a estrutura, remove redundância). |
+| **chore**    | Atualiza tarefas de manutenção, configurações de build, etc. (ex: ajustes no `.gitignore`).                    |
+| **test**     | Adiciona ou corrige testes no código.                                                                          |
+
 ---
 
 [//]: # "Seção de links de referência para manter o documento limpo"
