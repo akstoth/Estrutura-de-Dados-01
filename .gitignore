@@ -1,1 +1,5 @@
+# Ignorar arquivos de configuração do editor
 .vscode/
+
+# Ignorar materiais de aula teórica por direitos autorais
+/Teoria/
