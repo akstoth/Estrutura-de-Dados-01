@@ -1,3 +1,23 @@
+/* ===============================================================================
+ * Arquivo: Aula-02-structs.c
+ * Autor: Aleksander Da Silva Toth
+ * Disciplina: Algoritmos e Estruturas de Dados I
+ * 
+ * Data de criação: 15/08/2025
+ * Data da última alteração: 20/08/2025	
+ * - Adicionado comentários explicativos.
+ * 
+ * Descrição: 
+ * Este programa demonstra o uso de structs em C, incluindo a definição de uma struct
+ * para representar uma pessoa, a busca por idade de uma pessoa em um array de structs
+ * ===============================================================================
+ 
+ * compile: gcc 
+ * build:   Ctrl + shift + B
+ * run:     ./Aula-02-structs.c
+ */
+
+// Bibliotecas
 #include <stdio.h>
 #include <string.h>
 
