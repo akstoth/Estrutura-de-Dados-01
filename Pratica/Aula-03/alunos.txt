@@ -1,0 +1,4 @@
+joao 20
+bia 15
+ana 22
+jose 25
