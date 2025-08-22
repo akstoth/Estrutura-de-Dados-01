@@ -61,7 +61,7 @@ void adiciona_inicio(aluno **p_prim, aluno *novo){
     novo->prox = *p_prim; // Deve-se usar um ponteiro, pois p_prim é um ponteiro duplo
 
     // Atualiza o primeiro elemento
-    *p_prim = novo; // Aqui não é necessárioo, pois jká é um ponteiro simples
+    *p_prim = novo; // Aqui não é necessárioo, pois já é um ponteiro simples
 
 }
 
