@@ -4,14 +4,10 @@
  * Disciplina: Estruturas de Dados I
  *
  * Data de criação: 22/08/2025
- * Data da última alteração: 22/08/2025
+ * Data da última alteração: 29/08/2025
  *
  *
- * Descrição:
- *      Um programa usa structs que possuem dois campos: nome (string) e idade (int).
- * Crie uma função que recebe como entrada uma lista de structs como citado acima,
- * o número de elementos na lista e um nome. A função deve retornar a idade do elemento
- * cujo nome foi passado ou o valor -1 caso o nome não seja encontrado.
+ * Descrição: Exercícios diversos
  *
  * ===============================================================================
  * compile: gcc

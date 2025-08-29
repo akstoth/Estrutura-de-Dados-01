@@ -82,3 +82,8 @@ int remove_Pilha(Elem **pi, struct aluno *al) {
 
     return 1;
 }
+
+int main()
+{
+    
+}
