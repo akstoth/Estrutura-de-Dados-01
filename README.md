@@ -50,13 +50,13 @@ Como estudante de Engenharia Elétrica com experiência em desenvolvimento de ha
 
 Acompanhe o progresso da disciplina através da checklist abaixo.
 
-- [ ] **Semana 1 (13/08):** Apresentação e Revisão de C (ponteiros, structs)
-- [ ] **Semana 1 (15/08):** Noções de complexidade de algoritmos
-- [ ] **Semana 2 (20/08):** Revisão de Structs
-- [ ] **Semana 2 (22/08):** Revisão de ponteiros
-- [ ] **Semana 3 (27/08):** Exercícios com structs e ponteiros
-- [ ] **Semana 3 (29/08):** Arrays e listas circulares
-- [ ] **Semana 4 (03/09):** Algoritmos sobre arrays e listas circulares
+- [x] **Semana 1 (13/08):** Apresentação e Revisão de C (ponteiros, structs)
+- [x] **Semana 1 (15/08):** Noções de complexidade de algoritmos
+- [x] **Semana 2 (20/08):** Revisão de Structs
+- [x] **Semana 2 (22/08):** Revisão de ponteiros
+- [x] **Semana 3 (27/08):** Exercícios com structs e ponteiros
+- [x] **Semana 3 (29/08):** Arrays e listas circulares
+- [x] **Semana 4 (03/09):** Algoritmos sobre arrays e listas circulares
 - [ ] **Semana 4 (05/09):** Listas encadeadas
 - [ ] **Semana 5 (10/09):** Exercícios sobre listas encadeadas
 - [ ] **Semana 5 (12/09):** Introdução a pilhas
