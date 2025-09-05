@@ -1,9 +1,39 @@
-# Estrutura de Dados 1 - EDCO3A
+# Estrutura de Dados I (EDCO3A)
 
 ![Linguagem](https://img.shields.io/badge/Linguagem-C-blue.svg)
-![Licença](https://img.shields.io/badge/Licen%C3%A7a-MIT-green.svg)
+![IDE](https://img.shields.io/badge/IDE-VS%20Code-orange.svg)
+![Status](https://img.shields.io/badge/Status-Em%20Andamento-blueviolet.svg)
 
-Repositório dedicado aos estudos, anotações e projetos desenvolvidos na disciplina de Estrutura de Dados 1 (EDCO3A), da Universidade Tecnológica Federal do Paraná (UTFPR).
+## Objetivo da Disciplina
+
+Este repositório contém os exercícios, projetos e anotações da disciplina de Estrutura de Dados I (EDCO3A), ministrada pelo Prof. Fabio Irigon Pereira. O objetivo é desenvolver o raciocínio lógico e implementar as principais estruturas de dados como listas, pilhas, filas, árvores e grafos.
+
+### Minhas Metas Pessoais
+
+- Aprofundar meus conhecimentos na linguagem C, com foco em alocação de memória e ponteiros.
+- Aplicar os conceitos de estruturas de dados para otimizar a performance de futuros projetos de firmware e sistemas embarcados.
+
+## Ferramentas e Setup
+
+Este projeto utiliza **Visual Studio Code** com a extensão **C/C++ da Microsoft** e o compilador **MinGW (GCC)**.
+
+1. **Clone o Repositório:**
+
+   ```bash
+   git clone [URL_DO_SEU_REPOSITORIO]
+   ```
+
+2. **Abra o Projeto:** No VS Code, abra a pasta do projeto clonado.
+3. **Compile e Execute:**
+   - **Compilar:** Pressione `Ctrl+Shift+B` para compilar o arquivo `.c` ativo. O executável será gerado na pasta `output/`.
+   - **Executar:** Utilize o botão **Run Code (▶️)** no canto superior direito (requer a extensão "Code Runner" configurada).
+
+## Estrutura do Repositório
+
+- **/Pratica:** Contém os códigos-fonte dos exercícios práticos, organizados por aula.
+- **/Referencias:** Contém materiais de apoio, como guias e documentações.
+- `README.md`: Este arquivo.
+- `DEVELOPMENT_GUIDE.md`: Guia com os padrões de desenvolvimento (commits, comentários, etc.).
 
 ## Sobre a Disciplina
 
@@ -64,13 +94,6 @@ O desempenho será analisado pela média simples de duas avaliações (AT1 e AT2
 - **Avaliação 1 (AT1):** 01/10/2025
 - **Avaliação 2 (AT2):** 03/12/2025
 - **Exame Final:** 12/12/2025 (para alunos com $3,0<=NF<6,0$)
-
-## Estrutura do Repositório
-
-- **/Pratica:** Contém os códigos-fonte e materiais práticos.
-- **/Referencias:** Contém guias, cheat sheets e outros materiais de referência.
-- **/Trabalhos:** Contém os projetos e trabalhos práticos da disciplina.
-- `README.md`: Este arquivo, com a descrição geral do repositório.
 
 ## Links e Recursos Úteis
 

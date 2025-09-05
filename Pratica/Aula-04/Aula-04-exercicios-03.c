@@ -1,227 +1,223 @@
-/* ===============================================================================
- * Arquivo: Aula-04-exercicios-03.c
- * Autor: Aleksander Da Silva Toth
- * Disciplina: Estruturas de Dados I
+/**
+ * @file Aula-04-exercicios-03.c
+ * @author Aleksander Da Silva Toth
+ * @brief Exercícios de manipulação de uma pilha dinâmica implementada com lista
+ * encadeada.
+ * @version 1.0.0
+ * @date 2025-09-05
  *
- * Data de criação: 29/08/2025
+ * @copyright Copyright (c) 2025
  *
- *
- * Descrição: Exercícios diversos - pilha dinâmica (lista encadeada)
- *
- * ===============================================================================
- * compile: gcc
- * build: Ctrl + shift + B
- * run: ./Aula-04-exercicios.exe
+ * =============================================================================
+ * @details
+ * Este arquivo contém a implementação de uma pilha LIFO (Last In, First Out)
+ * para armazenar dados de alunos. Inclui operações fundamentais como push e
+ * pop, além de funções auxiliares para liberar, imprimir, inserir em posições
+ * arbitrárias e remover elementos por critério (idade).
+ * =============================================================================
  */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-// aluno (dado)
-struct aluno
-{
-    int idade;
-    char nome[30];
+// Estrutura que armazena os dados de um aluno
+struct aluno {
+  int idade;
+  char nome[30];
 };
 
-// nó: dado + ponteiro para o próximo
-typedef struct no
-{
-    struct aluno dado;
-    struct no *prox;
+// Estrutura do nó da lista encadeada, que representa um elemento da pilha
+typedef struct no {
+  struct aluno dado;
+  struct no *prox;
 } no;
 
-// adiciona ao topo da pilha
-int push(no **topo, struct aluno al)
-{
-    if (topo == NULL)
-    {
-        return 0;
-    }
-    // cria um novo elemento
-    no *novo = (no *)malloc(sizeof(no));
-    if (novo == NULL)
-    {
-        return 0;
-    }
+/**
+ * @brief Adiciona um aluno ao topo da pilha.
+ *
+ * @param topo Ponteiro duplo para o nó do topo da pilha.
+ * @param al Struct de aluno com os dados a serem inseridos.
+ * @return int Retorna 1 em caso de sucesso, 0 em caso de falha.
+ */
+int push(no **topo, struct aluno al) {
+  if (topo == NULL) {
+    return 0;
+  }
+  no *novo = (no *)malloc(sizeof(no));
+  if (novo == NULL) {
+    return 0;
+  }
+  novo->dado = al;
+  novo->prox = *topo;
+  *topo = novo;
+  return 1;
+}
 
-    // copia dados para o novo nó
-    novo->dado = al;
+/**
+ * @brief Remove o aluno do topo da pilha.
+ *
+ * @param topo Ponteiro duplo para o nó do topo da pilha.
+ * @param al Ponteiro para uma struct aluno onde os dados removidos serão
+ * armazenados.
+ * @return int Retorna 1 em caso de sucesso, 0 se a pilha estiver vazia.
+ */
+int pop(no **topo, struct aluno *al) {
+  if (topo == NULL || *topo == NULL) {
+    return 0;
+  }
+  no *temp = *topo;
+  *al = temp->dado;
+  *topo = temp->prox;
+  free(temp);
+  return 1;
+}
 
+/**
+ * @brief Remove todos os elementos da pilha, liberando a memória.
+ *
+ * @param topo Ponteiro duplo para o nó do topo da pilha.
+ */
+void libera_pilha(no **topo) {
+  if (topo == NULL) {
+    return;
+  }
+  struct aluno x;
+  while (pop(topo, &x)) {
+    printf("removido %s %d\n", x.nome, x.idade);
+  }
+}
+
+/**
+ * @brief Imprime todos os elementos da pilha, do topo à base.
+ *
+ * @param topo Ponteiro duplo para o nó do topo da pilha.
+ */
+void imprime_pilha(no **topo) {
+  if (topo == NULL) {
+    return;
+  }
+  no *temp = *topo;
+  while (temp != NULL) {
+    printf("Nome: %s, Idade: %d\n", temp->dado.nome, temp->dado.idade);
+    temp = temp->prox;
+  }
+}
+
+/**
+ * @brief Insere um aluno em uma posição específica da lista.
+ * @details Esta função "quebra" a regra LIFO da pilha, mas serve como
+ * um exercício de manipulação de listas encadeadas.
+ *
+ * @param topo Ponteiro duplo para o nó do topo.
+ * @param al Struct de aluno com os dados a serem inseridos.
+ * @param pos Posição de base 0 onde o novo aluno será inserido.
+ * @return int Retorna 1 em caso de sucesso, 0 em caso de falha.
+ */
+int push_pos(no **topo, struct aluno al, int pos) {
+  if (topo == NULL) {
+    return 0;
+  }
+  no *novo = (no *)malloc(sizeof(no));
+  if (novo == NULL) {
+    return 0;
+  }
+  novo->dado = al;
+
+  if (pos < 0) {
+    free(novo);  // Libera o nó alocado se a posição for inválida
+    return 0;
+  }
+
+  if (pos == 0) {
     novo->prox = *topo;
     *topo = novo;
-    return 1;
-}
-
-// remove do topo da pilha
-int pop(no **topo, struct aluno *al)
-{
-    if (topo == NULL || *topo == NULL)
-    {
-        return 0;
-    }
-
-    // temporário aponta para o primeiro elemento
+  } else {
     no *temp = *topo;
+    // Navega até o nó ANTERIOR à posição de inserção
+    for (int i = 0; i < pos - 1; i++) {
+      if (temp == NULL) {  // Posição fora do alcance
+        free(novo);
+        return 0;
+      }
+      temp = temp->prox;
+    }
+    // Verifica se a posição é válida após o loop
+    if (temp == NULL) {
+      free(novo);
+      return 0;
+    }
+    novo->prox = temp->prox;
+    temp->prox = novo;
+  }
+  return 1;
+}
 
-    // copia conteúdo
-    *al = temp->dado;
+/**
+ * @brief Remove o primeiro aluno encontrado com uma idade específica.
+ *
+ * @param topo Ponteiro duplo para o nó do topo da pilha.
+ * @param rem_idade A idade do aluno a ser removido.
+ * @return int Retorna 1 se removeu, 0 se não encontrou, -1 se a pilha estava
+ * vazia.
+ */
+int pop_idade(no **topo, int rem_idade) {
+  if (topo == NULL || *topo == NULL) {
+    return -1;
+  }
 
-    // topo aponta para o segundo elemento
+  no *temp = *topo;
+  no *ant = NULL;
+
+  // Percorre a lista até encontrar a idade ou chegar ao fim
+  while (temp != NULL && temp->dado.idade != rem_idade) {
+    ant = temp;
+    temp = temp->prox;
+  }
+
+  // Se 'temp' é NULL, significa que não encontrou a idade na lista
+  if (temp == NULL) {
+    return 0;  // Não encontrou
+  }
+
+  // Se 'ant' é NULL, o nó a ser removido é o topo da pilha
+  if (ant == NULL) {
     *topo = temp->prox;
+  } else {
+    // Se não, o nó a ser removido está no meio/fim da lista
+    ant->prox = temp->prox;
+  }
 
-    // destroi primeiro
-    free(temp);
-    return 1;
+  free(temp);
+  return 1;  // Sucesso
 }
 
-/* ***************************************************
-** EXERCÍCIOS
-** ***************************************************/
+/**
+ * @brief Função principal para testar as operações da pilha.
+ */
+int main() {
+  no *topo = NULL;
+  struct aluno a0;
 
-// exercício 1 libera pilha (remove todos os elementos)
-void libera_pilha(no **topo)
-{
-    if (topo == NULL)
-    {
-        return;
-    }
+  int idades[5] = {12, 15, 17, 19, 25};
+  char nomes[5][15] = {"pedro", "caio", "ze", "ju", "bia"};
 
-    struct aluno x;
-    struct aluno *p_x;
-    p_x = &x;
+  // Adiciona 5 elementos
+  for (int i = 0; i < 5; i++) {
+    a0.idade = idades[i];
+    strcpy(a0.nome, nomes[i]);
+    push(&topo, a0);
+  }
 
-    while (pop(topo, &x))
-    {
-        printf("removido %s %d\n\n", x.nome, x.idade);
-        // printf("removido %s %d", p_x->nome, p_x->idade);
-        // printf("removido %s %d", (*p_x).nome, p_x->idade);
-    }
-}
+  a0.idade = 50;
+  strcpy(a0.nome, "florisbela");
+  push_pos(&topo, a0, 4);
+  imprime_pilha(&topo);
 
-// exercício 2 imprime pilha
-void imprime_pilha(no **topo)
-{
-    if (topo == NULL)
-    {
-        return;
-    }
-    no *temp = *topo; // Como é um ponteiro duplo, usamos um para apontar ao primeiro elemento
-                      // Temp é um ponteiro temporário que percorre a pilha, logo, parará quando chegar ao final, sendo NULL
-    while (temp != NULL)
-    {
-        printf("Nome: %s, Idade: %d\n", temp->dado.nome, temp->dado.idade); // temp->dado.nome: temp é um ponteiro de dado, nome é um elemento do struct dado
-        temp = temp->prox;                                                  // Usa-se temp que aponta para o prox.
-    }
-}
+  printf("\nDepois de remover a idade 17:\n");
+  pop_idade(&topo, 17);
+  imprime_pilha(&topo);
 
-// exercício 3 insere em posição arbitrária
-int push_pos(no **topo, struct aluno al, int pos) { // Receber a posição como parâmetro
-    if (topo == NULL) { // Se o nó for nulo
-        return 0;
-    }
-
-
-    // cria um novo elemento
-    no *novo = (no *)malloc(sizeof(no));
-    if (novo == NULL) {
-        return 0;
-    }
-
-    // copia dados para o novo nó
-    novo->dado = al;
-
-    if (pos < 0)  { // Se pos for menor que 0
-        return 0;
-    }
-
-    if (pos == 0) { // Se pos for o topo
-        novo->prox = *topo;
-        *topo = novo;
-        //return push(topo, al); // Reaproveita a função push
-    }
-    else {
-        
-        no *temp = *topo; // temp começa no topo
-        for(int i = 0; i < pos-1; i++){ // Se pos é igual a 4, deve parar na posição anterior (0 a 3)
-            temp = temp->prox;
-            
-            if (temp == NULL) {
-                return 0;
-            }
-        }
-
-        novo->prox = temp->prox; // O próximo do novo é o próximo do temp (novo deve ser o primeiro a ser referenciado)
-        temp->prox = novo; 
-
-    }
-
-    return 1;
-}
-
-// exercício 4: remove struct com idade específica
-int pop_idade(no **topo, int rem_idade)
-{
-    if(topo == NULL || *topo == NULL) { // Se o topo for nulo ou a pilha estiver vazia
-        return -1;
-    }
-
-    
-    if ((*topo)->dado.idade == rem_idade) { // Se pos for o topo
-        no *temp = *topo;           // Cria-se um nó temporário para liberar a memória
-        *topo = (*topo)->prox;      // Atualiza o topo para o próximo com o ponteiro
-        free(temp);                 // Libera a memória do nó temporário
-    }
-    else {
-        no *temp = *topo;           // temp começa no topo
-        no *ant = *topo;            // ant é o nó anterior, começa no topo também
-        while(temp->dado.idade != rem_idade) {
-            ant = temp;             // O anterior aponta para temp
-            temp = temp->prox;      // Temp aponta para o proximo
-
-            if(temp == NULL) {
-                return 0; // Não encontrou a idade
-            }
-        } 
-
-        // Remove o elemento
-        ant->prox = temp->prox;     // O proximo do anterior aponta para o próximo do temp
-        free(temp);                 // Libera a memória do temp
-    }
-
-    return 1;
-}
-
-// outros exercícios:
-// remove o último ou o penúltimo elemento
-// conta elementos com idade maior que x
-// insere elemento na base da pilha
-// remove o segundo elemento da pilha
-
-int main()
-{
-    no *topo = NULL;
-    struct aluno a0;
-
-    int idades[5] = {12, 15, 17, 19, 25};
-    char nomes[5][15] = {"pedro", "caio", "ze", "ju", "bia"};
-
-    // adiciona 5 elementos
-    for (int i = 0; i < 5; i++)
-    {
-        a0.idade = idades[i];
-        strcpy(a0.nome, nomes[i]);
-        push(&topo, a0);
-    }
-
-    a0.idade = 50;
-    strcpy(a0.nome, "florisbela");
-    push_pos(&topo, a0, 4);
-    imprime_pilha(&topo);
-    //libera_pilha(&topo);
-
-    pop_idade(&topo, 17);
-    printf("Depois de remover a idade 17:\n");
-    imprime_pilha(&topo);
+  // libera_pilha(&topo);
+  return 0;
 }

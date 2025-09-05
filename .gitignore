@@ -3,3 +3,8 @@
 
 # Ignorar materiais de aula teórica por direitos autorais
 /Teoria/
+
+# Ignorar arquivos compilados e pastas de output
+*.exe
+*.o
+output/
