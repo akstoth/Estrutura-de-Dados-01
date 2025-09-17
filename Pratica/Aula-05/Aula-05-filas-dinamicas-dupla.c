@@ -92,6 +92,7 @@ void remove_final(deque *d) {
     d->qtd--;
 
 }
+
 void destroi_fila(deque *d)
 {
     if (d == NULL || d->qtd == 0)
