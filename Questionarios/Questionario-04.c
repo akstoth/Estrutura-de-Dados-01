@@ -40,8 +40,7 @@ int maiores(pessoa *p) {
   }
 
   if (p->idade > 21) {
-    return 1 +
-           maiores(p->prox);  // Retorna 1 se for maior que 21
+    return 1 + maiores(p->prox);  // Retorna 1 se for maior que 21
                               // e chama a função recursivamente para o próximo
   } else {
     return maiores(p->prox);
