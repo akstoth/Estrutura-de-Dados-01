@@ -1,5 +1,5 @@
 /**
- * @file Aula-06-arvores.c
+ * @file Aula-06-arvores-01.c
  * @author Aleksander Da Silva Toth
  * @brief Exercícios de filas - continuação
  * @version 1.0.0
