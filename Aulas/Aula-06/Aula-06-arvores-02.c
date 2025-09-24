@@ -106,13 +106,34 @@ int soma_menores(NO *raiz, int x) {
     return ret + total_esq + total_dir; // Retorna a soma total
 }
 
+// Para cada nó, verificamos a altura da subárvore esquerda e direita, pegamos o maior valor entre os dois e somamos 1 (que representa o nó atual)
+int altura_arvore(NO *raiz) {
+    if(raiz == NULL) {
+        return 0;
+    }
+
+    int altura_esq = altura_arvore(raiz->esq);
+    int altura_dir = altura_arvore(raiz->dir);
+
+    if(altura_esq > altura_dir) {
+        return altura_esq + 1;
+    }
+    else {
+        return altura_dir + 1;
+    }
+
+    return 0;
+}
+
 /* 
 Exemplo de árvore
             15
            / \
           25 20
-         / \   \
-        12 18   27
+         / \   
+        12 18
+             \  
+              27   
 */
 
 int main(){
@@ -144,5 +165,7 @@ int main(){
     printf("Total de folhas: %d\n", count_folhas(&x[0]));
 
     printf("Soma dos valores menores que 18: %d\n", soma_menores(&x[0], 18));
+
+    printf("Altura da arvore: %d\n", altura_arvore(&x[0]));
 
 }
