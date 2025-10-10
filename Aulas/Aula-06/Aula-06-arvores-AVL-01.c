@@ -129,7 +129,54 @@ int conta_pares(NO *raiz){
     return pares;
 }
 
+int altura(NO *raiz) {
+    if (raiz == NULL) {
+        return 0;
+    }
+    int hD = altura(raiz->dir);
+    int hE = altura(raiz->esq);
+    int h;
+
+    // Contamos a altura verificando cada folha, somando um ao retornar após comparar entre o lado esquerdo e o direito
+    if (hD > hE) {
+        h = hD + 1;
+    }
+    else {
+        h = hE + 1;
+    }
+    printf("chave: %d, altura: %d\n", raiz->info, h);
+    return h;
+}
+
 int main(){
+    NO x[7] = {{15, 'A', NULL, NULL},   //x[0]
+               {9,  'B', NULL, NULL},   //x[1]
+               {25, 'C', NULL, NULL},   //x[2]
+               {5,  'D', NULL, NULL},   //x[3]
+               {12, 'E',NULL, NULL},    //x[4]
+               {19, 'F',NULL, NULL},    //x[5]
+               {32, 'G',NULL, NULL}};   //x[6]
+
+    x[0].esq = &x[1];
+    x[0].dir = &x[2];
+    x[1].esq = &x[3];
+    x[1].dir = &x[4];
+    x[2].esq = &x[5];
+    x[2].dir = &x[6];
+
+    //printf("busca 25: %d\n", busca_no(&x[0], 25));
+    //printf("busca 11: %d\n", busca_no(&x[0], 11));
+    //printf("busca 16: %d\n", busca_no(&x[0], 16));
+    /*
+    imprime_arvore(&x[0]);
+    
+    printf("\n pares: %d\n", conta_pares(&x[0]));
+    NO n = {10, 'X', NULL, NULL};
+    adiciona_no_rec(&x[0], &n);
+    imprime_arvore(&x[0]);
+    printf("\n pares: %d", conta_pares(&x[0]));
+    */
+    altura(&x[0]);
     NO x[7] = {{15, 'A', NULL, NULL},   //x[0]
                {9,  'B', NULL, NULL},   //x[1]
                {25, 'C', NULL, NULL},   //x[2]
